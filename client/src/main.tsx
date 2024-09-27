@@ -5,6 +5,7 @@ import "./index.css";
 import { NextUIProvider } from "@nextui-org/react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Main } from "./pages/main";
+import { User } from "./pages/user";
 
 const container = document.getElementById("root");
 
@@ -12,6 +13,10 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+  },
+  {
+    path: "/user/:id",
+    element: <User />,
   },
 ]);
 

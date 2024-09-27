@@ -32,6 +32,10 @@ const Action = () => {
         </div>
 
         <Button>connect metamask</Button>
+
+        <p className="text-sm text-white uppercase mt-3">
+          You need to connect wallet before registration
+        </p>
       </div>
 
       <div className="flex flex-col gap-9 mr-[58.75px]">
