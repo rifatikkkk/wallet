@@ -1,11 +1,12 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-// import { Provider } from "react-redux";
+import { Provider } from "react-redux";
 import "./index.css";
 import { NextUIProvider } from "@nextui-org/react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Main } from "./pages/main";
 import { User } from "./pages/user";
+import { store } from "./app/store";
 
 const container = document.getElementById("root");
 
@@ -25,11 +26,11 @@ if (container) {
 
   root.render(
     <StrictMode>
-      {/* <Provider store={store}> */}
-      <NextUIProvider>
-        <RouterProvider router={router} />
-      </NextUIProvider>
-      {/* </Provider> */}
+      <Provider store={store}>
+        <NextUIProvider>
+          <RouterProvider router={router} />
+        </NextUIProvider>
+      </Provider>
     </StrictMode>
   );
 } else {
