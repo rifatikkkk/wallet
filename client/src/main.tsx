@@ -2,11 +2,11 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
 import "./index.css";
-import { NextUIProvider } from "@nextui-org/react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Main } from "./pages/main";
 import { User } from "./pages/user";
-import { store } from "./app/store";
+import { persistor, store } from "./app/store";
+import { PersistGate } from "redux-persist/integration/react";
 
 const container = document.getElementById("root");
 
@@ -27,9 +27,9 @@ if (container) {
   root.render(
     <StrictMode>
       <Provider store={store}>
-        <NextUIProvider>
+        <PersistGate persistor={persistor}>
           <RouterProvider router={router} />
-        </NextUIProvider>
+        </PersistGate>
       </Provider>
     </StrictMode>
   );
