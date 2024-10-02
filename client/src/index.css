@@ -48,11 +48,14 @@ code {
 
 .table-card::-webkit-scrollbar {
   width: 3px;
+  background-color: transparent;
 }
 
 .table-card::-webkit-scrollbar-track {
   border-radius: 2px;
   background-color: white;
+  border-left: 1.25px solid transparent;
+  border-right: 1.25px solid transparent;
 }
 
 .table-card::-webkit-scrollbar-thumb {
@@ -64,4 +67,22 @@ code {
   color: transparent;
   -webkit-text-fill-color: #171719;
   -webkit-text-stroke-width: 1px;
+}
+
+.table-card::-webkit-scrollbar {
+  width: 3px;
+  background-color: transparent;
+}
+
+.table-card::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 0 3px white;
+  border-radius: 1.25px;
+  background-color: transparent;
+  border-left: 1.25px solid transparent;
+  border-right: 1.25px solid transparent;
+}
+
+.table-card::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: #e75626;
 }
