@@ -6,6 +6,8 @@ export type User = {
 };
 
 export type CurrentUser = {
-  name: string;
-  email: string;
+  id: string;
+  address: string;
+  username?: string;
+  email?: string;
 };
