@@ -1,11 +1,11 @@
 import React from "react";
 import { ConnectWallet } from "../../features/user/connectWallet";
-import { useSelector } from "react-redux";
 import { selectCurrent } from "../../features/user/userSlice";
 import { useNavigate } from "react-router-dom";
+import { useAppSelector } from "../../app/hooks";
 
 export const Header = () => {
-  const current = useSelector(selectCurrent);
+  const current = useAppSelector(selectCurrent);
   const navigate = useNavigate();
 
   return (

@@ -1,9 +1,8 @@
 import React from "react";
 import { Input } from "../input";
-import { useAppDispatch } from "../../app/hooks";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { selectCurrent, setCurrent } from "../../features/user/userSlice";
 import { useForm } from "react-hook-form";
-import { useSelector } from "react-redux";
 import { ConnectWallet } from "../../features/user/connectWallet";
 import { Button } from "../button";
 import { Notification } from "../notification";
@@ -16,7 +15,7 @@ type MyUser = {
 
 export const FormData = () => {
   const dispatch = useAppDispatch();
-  const currentUser = useSelector(selectCurrent);
+  const currentUser = useAppSelector(selectCurrent);
 
   const { handleSubmit, control } = useForm<MyUser>({
     mode: "onChange",

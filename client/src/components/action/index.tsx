@@ -3,15 +3,15 @@ import { Text } from "../text";
 import { Title } from "../title";
 import { useGetAllUsersQuery } from "../../app/services/userApi";
 import { selectCurrent, selectUsers } from "../../features/user/userSlice";
-import { useSelector } from "react-redux";
 import { InfoUser } from "../infoUser";
 import { AddToList } from "../../features/user/addToList";
 import { UsersList } from "../usersList";
 import { FormData } from "../formData";
+import { useAppSelector } from "../../app/hooks";
 
 const Action = () => {
-  const current = useSelector(selectCurrent);
-  const usersList = useSelector(selectUsers);
+  const current = useAppSelector(selectCurrent);
+  const usersList = useAppSelector(selectUsers);
   const { data = usersList } = useGetAllUsersQuery(undefined, {
     skip: Boolean(usersList),
   });

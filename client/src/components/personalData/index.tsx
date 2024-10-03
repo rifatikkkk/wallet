@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { FieldUser } from "../fieldUser";
-import { useSelector } from "react-redux";
 import { selectCurrent } from "../../features/user/userSlice";
 import { useNavigate } from "react-router-dom";
+import { useAppSelector } from "../../app/hooks";
 
 type Props = {
   name: string;
@@ -11,7 +11,7 @@ type Props = {
 };
 
 export const PersonalData: React.FC<Props> = ({ name, email, wallet }) => {
-  const current = useSelector(selectCurrent);
+  const current = useAppSelector(selectCurrent);
   const navigate = useNavigate();
 
   useEffect(() => {

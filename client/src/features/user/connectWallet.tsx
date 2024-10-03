@@ -1,12 +1,11 @@
 import React from "react";
 import { useSyncProviders } from "../../hooks/useSyncProviders";
 import { selectCurrent, setCurrent } from "../../features/user/userSlice";
-import { useAppDispatch } from "../../app/hooks";
-import { useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { Button } from "../../components/button";
 
 export const ConnectWallet = () => {
-  const current = useSelector(selectCurrent);
+  const current = useAppSelector(selectCurrent);
   const providers = useSyncProviders();
   const dispatch = useAppDispatch();
 

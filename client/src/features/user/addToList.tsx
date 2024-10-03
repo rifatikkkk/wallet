@@ -1,14 +1,13 @@
 import React from "react";
 import { Button } from "../../components/button";
-import { useSelector } from "react-redux";
 import { addUserToList, selectCurrent, selectUsers } from "./userSlice";
-import { useAppDispatch } from "../../app/hooks";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { User } from "../../app/types";
 import { isExistCurrent } from "../../utils/checkCurrent";
 
 export const AddToList = () => {
-  const current = useSelector(selectCurrent);
-  const users = useSelector(selectUsers);
+  const current = useAppSelector(selectCurrent);
+  const users = useAppSelector(selectUsers);
   const dispatch = useAppDispatch();
 
   const handleToList = () => {
