@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 import { ConnectWallet } from "../../features/user/connectWallet";
 import { Button } from "../button";
+import { Notification } from "../notification";
 
 type MyUser = {
   username: string;
@@ -17,11 +18,7 @@ export const FormData = () => {
   const dispatch = useAppDispatch();
   const currentUser = useSelector(selectCurrent);
 
-  const {
-    handleSubmit,
-    control,
-    formState: { errors },
-  } = useForm<MyUser>({
+  const { handleSubmit, control } = useForm<MyUser>({
     mode: "onChange",
     defaultValues: {
       id: "my",
@@ -56,7 +53,6 @@ export const FormData = () => {
                 ? "placeholder-white placeholder-opacity-50 focus:outline-none focus:ring-0 focus:border-orange"
                 : "border-opacity-50 placeholder-passThrough"
             }
-            // class name placeholder
             disabled={currentUser?.address ? false : true}
             control={control}
             name="username"
@@ -73,7 +69,6 @@ export const FormData = () => {
                 ? "border-white placeholder-white placeholder-opacity-50 focus:outline-none focus:ring-0 focus:border-orange "
                 : "border-opacity-50 placeholder-passThrough"
             }
-            // class name placeholder
             disabled={currentUser?.address ? false : true}
             control={control}
             name="email"
@@ -87,9 +82,9 @@ export const FormData = () => {
         <div className="flex flex-col gap-3">
           <ConnectWallet />
 
-          <p className="text-sm text-white uppercase">
+          <Notification>
             You need to connect wallet before registration
-          </p>
+          </Notification>
         </div>
       ) : (
         <Button type="submit">Get Early Access</Button>

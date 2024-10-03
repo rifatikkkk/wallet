@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import type { User, CurrentUser } from "../../app/types";
+import type { User } from "../../app/types";
 import { userApi } from "../../app/services/userApi";
 import { RootState } from "../../app/store";
 import type { PayloadAction } from "@reduxjs/toolkit";
@@ -7,7 +7,7 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 interface InitialState {
   users: User[] | null;
   user: User | null;
-  current: CurrentUser | null;
+  current: User | null;
 }
 
 const initialState: InitialState = {
@@ -21,7 +21,7 @@ const slice = createSlice({
   initialState,
   reducers: (create) => ({
     initial: () => initialState,
-    setCurrent: create.reducer((state, action: PayloadAction<CurrentUser>) => {
+    setCurrent: create.reducer((state, action: PayloadAction<User>) => {
       state.current = action.payload;
     }),
     resetUser: (state) => {
@@ -30,11 +30,13 @@ const slice = createSlice({
     addUserToList: create.reducer((state, action: PayloadAction<User>) => {
       state.users?.unshift(action.payload);
     }),
-    deleteUserFromList: create.reducer((state, action: PayloadAction<User>) => {
-      state.users = state.users?.filter(
-        (user) => user.id !== action.payload.id
-      );
-    }),
+    deleteUserFromList: create.reducer(
+      (state, action: PayloadAction<User> | null) => {
+        state.users = state.users?.filter(
+          (user) => user.id !== action?.payload.id
+        );
+      }
+    ),
   }),
   extraReducers: (builder) => {
     builder
@@ -64,8 +66,6 @@ export const {
 export default slice.reducer;
 
 export const selectCurrent = (state: RootState) => state.user.current;
-
-export const selectAddress = (state: RootState) => state.user.current?.address;
 
 export const selectUser = (state: RootState) => state.user.user;
 

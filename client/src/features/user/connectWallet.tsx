@@ -1,12 +1,12 @@
 import React from "react";
 import { useSyncProviders } from "../../hooks/useSyncProviders";
-import { selectAddress, setCurrent } from "../../features/user/userSlice";
+import { selectCurrent, setCurrent } from "../../features/user/userSlice";
 import { useAppDispatch } from "../../app/hooks";
 import { useSelector } from "react-redux";
 import { Button } from "../../components/button";
 
 export const ConnectWallet = () => {
-  const wallet = useSelector(selectAddress);
+  const current = useSelector(selectCurrent);
   const providers = useSyncProviders();
   const dispatch = useAppDispatch();
 
@@ -22,7 +22,7 @@ export const ConnectWallet = () => {
   };
 
   const handleClick = () => {
-    providers.length > 0 && !wallet
+    providers.length > 0 && !current?.address
       ? providers.map((provider: EIP6963ProviderDetail) =>
           handleConnect(provider)
         )

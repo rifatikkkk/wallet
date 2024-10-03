@@ -1,11 +1,11 @@
 import React from "react";
 import { ConnectWallet } from "../../features/user/connectWallet";
 import { useSelector } from "react-redux";
-import { selectAddress } from "../../features/user/userSlice";
+import { selectCurrent } from "../../features/user/userSlice";
 import { useNavigate } from "react-router-dom";
 
 export const Header = () => {
-  const wallet = useSelector(selectAddress);
+  const current = useSelector(selectCurrent);
   const navigate = useNavigate();
 
   return (
@@ -16,10 +16,10 @@ export const Header = () => {
       >
         logo
       </div>
-      {!wallet ? (
+      {!current?.address ? (
         <ConnectWallet />
       ) : (
-        <p className="text-orange text-lg">{wallet}</p>
+        <p className="text-orange text-lg">{current.address}</p>
       )}
     </div>
   );

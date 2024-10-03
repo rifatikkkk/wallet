@@ -1,4 +1,3 @@
-import React from "react";
 import planet from "../../assets/planet.svg";
 
 export const Planet = () => {

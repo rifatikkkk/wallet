@@ -13,9 +13,10 @@ export const DeleteFromList: React.FC<Props> = ({ user }) => {
   const users = useSelector(selectUsers);
   const dispatch = useAppDispatch();
   const handleDelete = () => {
-    if (users) {
-      // const newUsers = users.filter((userItem) => userItem !== user);
-      dispatch(deleteUserFromList(user));
+    try {
+      if (users) dispatch(deleteUserFromList(user));
+    } catch (error) {
+      console.log(error);
     }
   };
   return (

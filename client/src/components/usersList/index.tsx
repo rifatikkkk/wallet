@@ -2,6 +2,7 @@ import React from "react";
 import { User } from "../../app/types";
 import { useNavigate } from "react-router-dom";
 import { DeleteFromList } from "../../features/user/deleteFromList";
+import { isExistCurrent } from "../../utils/checkCurrent";
 
 type Props = {
   users: User[];
@@ -9,14 +10,6 @@ type Props = {
 
 export const UsersList: React.FC<Props> = ({ users }) => {
   const navigate = useNavigate();
-
-  const isExistCurrent = () => {
-    if (users) {
-      const isExist = users.some((user) => String(user.id) === "my");
-      return isExist;
-    }
-    return false;
-  };
 
   return (
     <table className="text-left table-auto min-w-full text-white overflow-x-hidden">
@@ -54,7 +47,7 @@ export const UsersList: React.FC<Props> = ({ users }) => {
                 <p>{user.email}</p>
               </td>
               <td className="py-4 max-w-[195px]">
-                {isExistCurrent() ? (
+                {isExistCurrent(users) ? (
                   String(user.id) === "my" ? (
                     <div className="flex flex-row gap-4 items-center">
                       <p className="truncate">{user.address}</p>
