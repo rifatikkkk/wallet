@@ -17,6 +17,7 @@ import { InfoUser } from "../infoUser";
 import { ConnectWallet } from "../../features/user/connectWallet";
 import { useNavigate } from "react-router-dom";
 import { AddToList } from "../../features/user/addToList";
+import { DeleteFromList } from "../../features/user/deleteFromList";
 
 type MyUser = {
   username: string;
@@ -49,7 +50,10 @@ const Action = () => {
 
   const onSubmit = async (data: MyUser) => {
     try {
-      if (wallet) dispatch(setCurrent({ ...data, address: wallet as string }));
+      if (wallet && data.username !== "" && data.email !== "")
+        dispatch(setCurrent({ ...data, address: wallet as string }));
+
+      // Write handler data.username and data.email is empty
     } catch (error) {
       console.log(error);
     }
@@ -160,8 +164,15 @@ const Action = () => {
                       <td className="py-4 pr-4">
                         <p>{user.email}</p>
                       </td>
-                      <td className="py-4 max-w-[195px] pr-4">
-                        <p className="truncate">{user.address}</p>
+                      <td className="py-4 max-w-[195px]">
+                        {String(user.id) === "my" ? (
+                          <div className="flex flex-row gap-4 items-center">
+                            <p className="truncate">{user.address}</p>
+                            <DeleteFromList user={user} />
+                          </div>
+                        ) : (
+                          <p className="truncate pr-4">{user.address}</p>
+                        )}
                       </td>
                     </tr>
                   );

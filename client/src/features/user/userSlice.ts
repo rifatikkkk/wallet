@@ -30,6 +30,9 @@ const slice = createSlice({
     addUserToList: create.reducer((state, action: PayloadAction<User>) => {
       state.users?.unshift(action.payload);
     }),
+    deleteFromList: create.reducer((state, action: PayloadAction<User>) => {
+      state.users = action.payload;
+    }),
   }),
   extraReducers: (builder) => {
     builder
@@ -48,7 +51,8 @@ const slice = createSlice({
   },
 });
 
-export const { setCurrent, resetUser, initial, addUserToList } = slice.actions;
+export const { setCurrent, resetUser, initial, addUserToList, deleteFromList } =
+  slice.actions;
 
 export default slice.reducer;
 
