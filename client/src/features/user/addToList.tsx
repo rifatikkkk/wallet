@@ -12,22 +12,25 @@ export const AddToList = () => {
 
   const handleToList = () => {
     try {
-      if (!isExist()) dispatch(addUserToList(current as User));
+      if (!isExistCurrent()) dispatch(addUserToList(current as User));
     } catch (error) {
       console.log(error);
     }
   };
 
-  const isExist = () => {
+  const isExistCurrent = () => {
     if (users) {
-      const user = users?.find((user) => String(user.id) === "my");
-      return user ? true : false;
+      const isExist = users?.some((user) => String(user.id) === "my");
+      return isExist;
     }
     return false;
   };
 
   return (
-    <Button className={isExist() ? "opacity-50" : ""} onClick={handleToList}>
+    <Button
+      className={isExistCurrent() ? "opacity-50 cursor-default" : ""}
+      onClick={handleToList}
+    >
       List me to the table
     </Button>
   );

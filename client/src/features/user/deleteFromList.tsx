@@ -1,7 +1,7 @@
 import React from "react";
 import buttonRemove from "../../assets/butttonRemove.svg";
 import { User } from "../../app/types";
-import { selectUsers, updateList } from "./userSlice";
+import { deleteUserFromList, selectUsers } from "./userSlice";
 import { useAppDispatch } from "../../app/hooks";
 import { useSelector } from "react-redux";
 
@@ -14,12 +14,12 @@ export const DeleteFromList: React.FC<Props> = ({ user }) => {
   const dispatch = useAppDispatch();
   const handleDelete = () => {
     if (users) {
-      const newUsers = users.filter((userItem) => userItem !== user);
-      dispatch(updateList(newUsers));
+      // const newUsers = users.filter((userItem) => userItem !== user);
+      dispatch(deleteUserFromList(user));
     }
   };
   return (
-    <button className="border-1 w-3 h-3" onClick={handleDelete}>
+    <button className="min-w-3 h-3" onClick={handleDelete}>
       <img className="w-full h-auto" src={buttonRemove} alt="remove" />
     </button>
   );
