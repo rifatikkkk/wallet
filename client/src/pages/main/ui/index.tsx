@@ -6,8 +6,9 @@ import { useAppDispatch } from "../../../app/hooks";
 import { initial } from "../../../entities/user/slice/userSlice";
 
 export const Main = () => {
-  const dispatch = useAppDispatch();
-  dispatch(initial());
+  // Without update state when update Main page
+  // const dispatch = useAppDispatch();
+  // dispatch(initial());
   return (
     <>
       <Layout>
