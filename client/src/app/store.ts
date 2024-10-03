@@ -4,8 +4,8 @@ import {
   combineReducers,
   configureStore,
 } from "@reduxjs/toolkit";
-import { api } from "./services/api";
-import user from "../features/user/userSlice";
+import { api } from "../entities/user/api/api";
+import user from "../entities/user/slice/userSlice";
 import storage from "redux-persist/lib/storage";
 import autoMergeLevel2 from "redux-persist/es/stateReconciler/autoMergeLevel2";
 import {

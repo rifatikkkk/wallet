@@ -1,4 +1,4 @@
-import { User } from "../app/types";
+import { User } from "../entities/user/types/typeUser";
 
 export const isExistCurrent = (users: User[] | null) => {
   if (users) {
