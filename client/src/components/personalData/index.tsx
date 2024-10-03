@@ -1,4 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { FieldUser } from "../fieldUser";
+import { useSelector } from "react-redux";
+import { selectCurrent } from "../../features/user/userSlice";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
   name: string;
@@ -7,20 +11,18 @@ type Props = {
 };
 
 export const PersonalData: React.FC<Props> = ({ name, email, wallet }) => {
+  const current = useSelector(selectCurrent);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!current) navigate("/");
+  }, []);
+
   return (
     <div className="flex flex-col gap-[22px]">
-      <div className="flex flex-col gap-2 uppercase">
-        <p className="text-white text-2xl leading-none">Name</p>
-        <p className="text-orange text-[32px] leading-none">{name}</p>
-      </div>
-      <div className="flex flex-col gap-2 uppercase">
-        <p className="text-white text-2xl leading-none">Email</p>
-        <p className="text-orange text-[32px] leading-none">{email}</p>
-      </div>
-      <div className="flex flex-col gap-2 uppercase">
-        <p className="text-white text-2xl leading-none">Wallet</p>
-        <p className="text-orange text-[32px] leading-none">{wallet}</p>
-      </div>
+      <FieldUser field="name" content={name} />
+      <FieldUser field="email" content={email} />
+      <FieldUser field="wallet" content={wallet} />
     </div>
   );
 };

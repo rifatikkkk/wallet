@@ -26,7 +26,7 @@ export const ConnectWallet = () => {
       ? providers.map((provider: EIP6963ProviderDetail) =>
           handleConnect(provider)
         )
-      : alert("you need add a tool metamask");
+      : alert("You need add a tool metamask!");
   };
 
   return (

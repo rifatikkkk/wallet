@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import { Button } from "../../components/button";
 import { useSelector } from "react-redux";
 import { addUserToList, selectCurrent, selectUsers } from "./userSlice";
@@ -9,13 +9,26 @@ export const AddToList = () => {
   const current = useSelector(selectCurrent);
   const users = useSelector(selectUsers);
   const dispatch = useAppDispatch();
-  const isExist = useRef(false);
+
   const handleToList = () => {
-    if (users) {
-      const user = users.find((user) => String(user.id) === "my");
-      isExist.current = user ? true : false;
-      if (!isExist.current) dispatch(addUserToList(current as User));
+    try {
+      if (!isExist()) dispatch(addUserToList(current as User));
+    } catch (error) {
+      console.log(error);
     }
   };
-  return <Button onClick={handleToList}>List me to the table</Button>;
+
+  const isExist = () => {
+    if (users) {
+      const user = users?.find((user) => String(user.id) === "my");
+      return user ? true : false;
+    }
+    return false;
+  };
+
+  return (
+    <Button className={isExist() ? "opacity-50" : ""} onClick={handleToList}>
+      List me to the table
+    </Button>
+  );
 };

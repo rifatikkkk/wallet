@@ -9,6 +9,7 @@ type Props = {
   type?: "button" | "submit";
   onClick?: React.MouseEventHandler<HTMLElement>;
   className?: string;
+  ref?: React.LegacyRef<HTMLButtonElement> | undefined;
 };
 
 export const Button: React.FC<Props> = ({
@@ -16,9 +17,11 @@ export const Button: React.FC<Props> = ({
   type,
   onClick,
   className,
+  ref,
 }) => {
   return (
     <button
+      ref={ref}
       type={type}
       className={`bg-orange font-bebas self-start px-6 py-2.5 text-white uppercase rounded-[30px] text-lg tracking-wide ${className}`}
       onClick={onClick}

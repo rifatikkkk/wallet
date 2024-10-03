@@ -6,6 +6,8 @@ type Props = {
   type?: "text" | "email";
   placeholder?: string;
   control: Control<any>;
+  className?: string;
+  disabled?: boolean;
 };
 
 export const Input: React.FC<Props> = ({
@@ -13,6 +15,8 @@ export const Input: React.FC<Props> = ({
   placeholder,
   name,
   control,
+  className,
+  disabled,
 }) => {
   const { field } = useController({
     name,
@@ -20,10 +24,11 @@ export const Input: React.FC<Props> = ({
   });
   return (
     <input
+      disabled={disabled}
       id={name}
       onChange={field.onChange}
       type={type}
-      className=" bg-transparent rounded-[30px] border-[1px] border-lightGray placeholder-gray px-[18px] py-3 font-avenir text-white text-sm"
+      className={`bg-transparent rounded-[30px] border-[1px] border-white px-[18px] py-3 font-avenir text-white text-sm focus:placeholder:text-transparent ${className}`}
       placeholder={placeholder}
     />
   );

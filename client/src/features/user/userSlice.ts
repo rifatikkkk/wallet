@@ -30,7 +30,7 @@ const slice = createSlice({
     addUserToList: create.reducer((state, action: PayloadAction<User>) => {
       state.users?.unshift(action.payload);
     }),
-    deleteFromList: create.reducer((state, action: PayloadAction<User>) => {
+    updateList: create.reducer((state, action: PayloadAction<User>) => {
       state.users = action.payload;
     }),
   }),
@@ -51,7 +51,7 @@ const slice = createSlice({
   },
 });
 
-export const { setCurrent, resetUser, initial, addUserToList, deleteFromList } =
+export const { setCurrent, resetUser, initial, addUserToList, updateList } =
   slice.actions;
 
 export default slice.reducer;

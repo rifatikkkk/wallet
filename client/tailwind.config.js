@@ -20,6 +20,7 @@ export default {
         lightGray: "#C7C7C7",
         orange: "#E75626",
         line: "#D2C4C4",
+        passThrough: "404040",
       },
     },
   },
