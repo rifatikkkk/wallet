@@ -4,7 +4,3 @@ export type User = {
   email: string | undefined;
   address: string | undefined;
 };
-
-export type Users = {
-  items: User[] | undefined;
-};
