@@ -1,4 +1,3 @@
-import React from "react";
 import { ConnectWallet } from "../../../features/user";
 import { selectCurrent } from "../../../entities/user/slice/userSlice";
 import { useNavigate } from "react-router-dom";

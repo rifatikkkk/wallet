@@ -1,4 +1,3 @@
-import React from "react";
 import { Text } from "../../../shared/ui/text";
 import upPlanet from "../../../shared/assets/upPlanet.svg";
 import { Stats } from "../../../shared/ui/stats";

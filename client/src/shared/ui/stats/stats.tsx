@@ -1,5 +1,3 @@
-import React from "react";
-
 export const Stats = () => {
   return (
     <div className="flex flex-col gap-[42px] items-center font-bebas w-[200px]">

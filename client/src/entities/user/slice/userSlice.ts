@@ -5,7 +5,7 @@ import { RootState } from "../../../app/stores/storeRedux";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 interface InitialState {
-  users: User[] | null;
+  users: User[] | null | undefined;
   user: User | null;
   current: User | null;
 }

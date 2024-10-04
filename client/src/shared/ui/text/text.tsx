@@ -1,5 +1,3 @@
-import React from "react";
-
 export const Text = () => {
   return (
     <p className="font-avenir text-base text-white max-w-[420px] tracking-wide leading-[19.2px]">

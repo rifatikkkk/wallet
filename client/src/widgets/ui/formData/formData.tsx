@@ -1,4 +1,3 @@
-import React from "react";
 import { Input } from "../../../shared/ui/input";
 import { useAppDispatch, useAppSelector } from "../../../app/hooks";
 import {

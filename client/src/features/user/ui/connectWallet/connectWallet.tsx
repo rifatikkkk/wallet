@@ -1,4 +1,3 @@
-import React from "react";
 import { useSyncProviders } from "../../../../app/hooks";
 import { selectCurrent, setCurrent } from "../../../../entities/user";
 import { useAppDispatch, useAppSelector } from "../../../../app/hooks/";
@@ -14,7 +13,14 @@ export const ConnectWallet = () => {
       const accounts = await providerWithInfo.provider.request({
         method: "eth_requestAccounts",
       });
-      dispatch(setCurrent({ address: accounts?.[0] }));
+      dispatch(
+        setCurrent({
+          address: accounts?.[0],
+          id: undefined,
+          email: undefined,
+          username: undefined,
+        })
+      );
     } catch (error) {
       console.error(error);
     }

@@ -7,8 +7,8 @@ import { initial } from "../../../entities/user/slice/userSlice";
 
 export const Main = () => {
   // Without update state when update Main page
-  // const dispatch = useAppDispatch();
-  // dispatch(initial());
+  const dispatch = useAppDispatch();
+  dispatch(initial());
   return (
     <>
       <Layout>

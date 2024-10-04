@@ -1,4 +1,3 @@
-import React from "react";
 import { Text } from "../../../shared/ui/text";
 import { Title } from "../../../shared/ui/title";
 import { useGetAllUsersQuery } from "../../../entities/user/api/userApi";

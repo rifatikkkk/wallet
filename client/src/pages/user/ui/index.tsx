@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Layout } from "../../../shared/ui/layout";
 import { Header } from "../../../widgets/ui/header";
 import { Personal } from "../../../widgets/ui/personal";

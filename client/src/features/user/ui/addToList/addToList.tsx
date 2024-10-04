@@ -1,4 +1,3 @@
-import React from "react";
 import { Button } from "../../../../shared/ui/button";
 import {
   addUserToList,
@@ -16,8 +15,10 @@ export const AddToList = () => {
 
   const handleToList = () => {
     try {
-      if (!isExistCurrent(users) && current)
-        dispatch(addUserToList(current as User));
+      if (users) {
+        if (!isExistCurrent(users) && current)
+          dispatch(addUserToList(current as User));
+      }
     } catch (error) {
       console.log(error);
     }
@@ -25,7 +26,9 @@ export const AddToList = () => {
 
   return (
     <Button
-      className={isExistCurrent(users) ? "opacity-50 cursor-default" : ""}
+      className={
+        users ? (isExistCurrent(users) ? "opacity-50 cursor-default" : "") : ""
+      }
       onClick={handleToList}
     >
       List me to the table
