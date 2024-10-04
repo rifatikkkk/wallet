@@ -5,9 +5,9 @@ import { useNavigate } from "react-router-dom";
 import { useAppSelector } from "../../../app/hooks";
 
 type Props = {
-  name: string;
-  email: string;
-  wallet: string;
+  name?: string;
+  email?: string;
+  wallet?: string;
 };
 
 export const PersonalData: React.FC<Props> = ({ name, email, wallet }) => {

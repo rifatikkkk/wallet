@@ -2,7 +2,7 @@ import React from "react";
 
 type Props = {
   field: string;
-  content: string;
+  content?: string;
 };
 
 export const FieldUser: React.FC<Props> = ({ field, content }) => {

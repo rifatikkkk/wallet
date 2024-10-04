@@ -1,6 +1,10 @@
 import { api } from "./api";
 import { User } from "../types/typeUser";
 
+type Users = {
+  items: User[];
+};
+
 export const userApi = api.injectEndpoints({
   endpoints: (builder) => ({
     getAllUsers: builder.query<User[], void>({
@@ -8,6 +12,9 @@ export const userApi = api.injectEndpoints({
         url: "/data",
         method: "GET",
       }),
+      transformResponse: (response: Users) => {
+        return response.items;
+      },
     }),
     getUserById: builder.query<User, string>({
       query: (id) => ({

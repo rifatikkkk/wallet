@@ -15,7 +15,7 @@ export const ConnectWallet = () => {
       });
       dispatch(
         setCurrent({
-          address: accounts?.[0],
+          address: String(accounts),
           id: undefined,
           email: undefined,
           username: undefined,

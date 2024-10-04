@@ -43,7 +43,7 @@ const slice = createSlice({
       .addMatcher(
         userApi.endpoints.getAllUsers.matchFulfilled,
         (state, action) => {
-          state.users = action.payload.items;
+          state.users = action.payload;
         }
       )
       .addMatcher(

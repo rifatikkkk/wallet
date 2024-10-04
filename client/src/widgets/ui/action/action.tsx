@@ -48,7 +48,7 @@ export const Action = () => {
             className="table-card w-full overflow-x-auto pr-[28.25px] 
         "
           >
-            {usersList ? <UsersList users={usersList} /> : null}
+            {usersList && data ? <UsersList users={usersList} /> : null}
           </div>
         </div>
       )}
