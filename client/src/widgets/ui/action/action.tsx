@@ -18,6 +18,8 @@ export const Action = () => {
     skip: Boolean(usersList),
   });
 
+  console.log(data);
+
   return (
     <div className="pt-12 pb-[86px] flex flex-row justify-between h-screen font-bebas">
       <div className="flex flex-col gap-9">
