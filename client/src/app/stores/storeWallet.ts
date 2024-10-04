@@ -7,7 +7,7 @@ declare global {
 // An array to store the detected wallet providers.
 let providers: EIP6963ProviderDetail[] = [];
 
-export const store = {
+export const storeWallet = {
   value: () => providers,
   subscribe: (callback: () => void) => {
     function onAnnouncement(event: EIP6963AnnounceProviderEvent) {

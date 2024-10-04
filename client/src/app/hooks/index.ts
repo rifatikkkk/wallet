@@ -1,1 +1,2 @@
-export { useAppDispatch, useAppSelector } from "./hooks";
+export { useAppDispatch, useAppSelector } from "./hooksRedux";
+export { useSyncProviders } from "./hooksWallet";

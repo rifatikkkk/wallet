@@ -1,5 +1,5 @@
 import React from "react";
-import { useSyncProviders } from "../../../../hooks/useSyncProviders";
+import { useSyncProviders } from "../../../../app/hooks";
 import { selectCurrent, setCurrent } from "../../../../entities/user";
 import { useAppDispatch, useAppSelector } from "../../../../app/hooks/";
 import { Button } from "../../../../shared/ui/button";
