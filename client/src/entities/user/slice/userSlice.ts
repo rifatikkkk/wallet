@@ -5,7 +5,7 @@ import { RootState } from "../../../app/stores/storeRedux";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 interface InitialState {
-  users: User[] | null | undefined;
+  users: User[] | null;
   user: User | null;
   current: User | null;
 }
@@ -32,9 +32,11 @@ const slice = createSlice({
     }),
     deleteUserFromList: create.reducer(
       (state, action: PayloadAction<User> | null) => {
-        state.users = state.users?.filter(
-          (user) => user.id !== action?.payload.id
-        );
+        if (state.users !== null) {
+          state.users = state.users?.filter(
+            (user) => user.id !== action?.payload.id
+          );
+        }
       }
     ),
   }),
